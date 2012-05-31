@@ -28,7 +28,7 @@ END_MESSAGE_MAP()
 // ImageViewer message handlers
 
 
-
+#include <opencv2\highgui\highgui_c.h>
 
 void ImageViewer::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 {
@@ -42,7 +42,7 @@ void ImageViewer::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
 	unsigned int buffer[sizeof(BITMAPINFOHEADER) + sizeof(RGBQUAD)*256]; 
 //	CRect rc;
 //	GetClientRect(&rc);
-	IplImage image=m_img;
+	IplImage image = m_img;
 	if(image.imageData)
 	{
 		bmi = (BITMAPINFO*)buffer;

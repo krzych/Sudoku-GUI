@@ -187,21 +187,6 @@ void CDigitExtractorDlg::OnBnClickedBtnProcess()
 	AfxGetApp()->EndWaitCursor();
 }
 
-
-void CDigitExtractorDlg::OnLButtonDown(UINT nFlags, CPoint point)
-{
-	// TODO: Add your message handler code here and/or call default
-	CRect rect; 
-	m_DispSudoku.GetWindowRect(&rect);
-
-	if(rect.PtInRect(point)) {
-		TRACE(_T("ELO\n"));
-	}
-
-	CDialog::OnLButtonDown(nFlags, point);
-}
-
-
 void CDigitExtractorDlg::OnBnClickedButton2()
 {
 	CPoint point;
@@ -212,8 +197,8 @@ void CDigitExtractorDlg::OnBnClickedButton2()
 	CRect rect; 
 	m_DispSudoku.GetWindowRect(&rect);
 
-	int w = floor(rect.Width()/9.0);
-	int h = floor(rect.Height()/9.0);
+	int w = (int)floor(rect.Width()/9.0);
+	int h = (int)floor(rect.Height()/9.0);
 
 	col = 0;
 	row = 0;

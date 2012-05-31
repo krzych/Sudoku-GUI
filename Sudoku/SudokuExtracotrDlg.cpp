@@ -122,36 +122,36 @@ BOOL CSudokuExtracotrDlg::OnInitDialog()
 
 void CSudokuExtracotrDlg::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar)
 {
-	// TODO: Add your message handler code here and/or call default
-	TRACE(_T("%d\n"), nSBCode);
-	int pos;
-	if(pScrollBar->GetSafeHwnd() == m_SliderBlockSize.GetSafeHwnd()) {
-		pos = m_SliderBlockSize.GetPos()*2+1;
-		m_SudokuExtractor->SetBlockSize(pos);
-		m_strBlockSize.Format(_T("%d"), pos);
-	}
-	if(pScrollBar->GetSafeHwnd() == m_SliderC.GetSafeHwnd()) {
-		pos = m_SliderC.GetPos();
-		m_SudokuExtractor->SetC(pos);
-		m_strC.Format(_T("%d"), pos);
-	}
-	if(pScrollBar->GetSafeHwnd() == m_SliderContourAreaThresh.GetSafeHwnd()) {
-		pos = m_SliderContourAreaThresh.GetPos();
-		m_SudokuExtractor->SetContourAreaThresh(pos);
-		m_strContourAreaThresh.Format(_T("%d"), pos);
-	}
-	if(pScrollBar->GetSafeHwnd() == m_SliderKernelSizeGauss.GetSafeHwnd()) {
-		pos = m_SliderKernelSizeGauss.GetPos()*2+1; //must be uneven
-		m_SudokuExtractor->SetKernelSizeGauss(pos); 
-		m_strKernelSizeGauss.Format(_T("%d"), pos);
-	}
-	if(pScrollBar->GetSafeHwnd() == m_SliderKernelSizeMorph.GetSafeHwnd()) {
-		pos = m_SliderKernelSizeMorph.GetPos()*2+1; //must be uneven
-		m_SudokuExtractor->SetKernelSizeMorph(pos);
-		m_strKernelSizeMorph.Format(_T("%d"), pos);
-	}
+	if(nSBCode == 8) {
+		int pos;
+		if(pScrollBar->GetSafeHwnd() == m_SliderBlockSize.GetSafeHwnd()) {
+			pos = m_SliderBlockSize.GetPos()*2+1;
+			m_SudokuExtractor->SetBlockSize(pos);
+			m_strBlockSize.Format(_T("%d"), pos);
+		}
+		if(pScrollBar->GetSafeHwnd() == m_SliderC.GetSafeHwnd()) {
+			pos = m_SliderC.GetPos();
+			m_SudokuExtractor->SetC(pos);
+			m_strC.Format(_T("%d"), pos);
+		}
+		if(pScrollBar->GetSafeHwnd() == m_SliderContourAreaThresh.GetSafeHwnd()) {
+			pos = m_SliderContourAreaThresh.GetPos();
+			m_SudokuExtractor->SetContourAreaThresh(pos);
+			m_strContourAreaThresh.Format(_T("%d"), pos);
+		}
+		if(pScrollBar->GetSafeHwnd() == m_SliderKernelSizeGauss.GetSafeHwnd()) {
+			pos = m_SliderKernelSizeGauss.GetPos()*2+1; //must be uneven
+			m_SudokuExtractor->SetKernelSizeGauss(pos); 
+			m_strKernelSizeGauss.Format(_T("%d"), pos);
+		}
+		if(pScrollBar->GetSafeHwnd() == m_SliderKernelSizeMorph.GetSafeHwnd()) {
+			pos = m_SliderKernelSizeMorph.GetPos()*2+1; //must be uneven
+			m_SudokuExtractor->SetKernelSizeMorph(pos);
+			m_strKernelSizeMorph.Format(_T("%d"), pos);
+		}
 
-	UpdateData(FALSE);
+		UpdateData(FALSE);
+	}
 	
 
 	CDialogEx::OnHScroll(nSBCode, nPos, pScrollBar);

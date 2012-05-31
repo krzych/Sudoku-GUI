@@ -46,6 +46,5 @@ public:
 	afx_msg void OnBnClickedBtnOk();
 	afx_msg void OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
 	afx_msg void OnBnClickedBtnProcess();
-	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnBnClickedButton2();
 };

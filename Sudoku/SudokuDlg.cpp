@@ -74,6 +74,7 @@ void CSudokuDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_TXT_STATUS, m_strStatus);
 	DDX_Control(pDX, IDC_BTN_SUDOKU_EXTRACTOR, m_btnSudokuEtractor);
 	DDX_Control(pDX, IDC_BTN_DIGIT_EXTRACTOR2, m_btnDigitExtractor);
+	DDX_Control(pDX, IDC_BTN_ACQUIRE, m_btnAcquireImage);
 }
 
 BEGIN_MESSAGE_MAP(CSudokuDlg, CDialogEx)
@@ -86,6 +87,7 @@ BEGIN_MESSAGE_MAP(CSudokuDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BTN_SUDOKU_EXTRACTOR, &CSudokuDlg::OnBnClickedBtnSudokuExtractor)
 	ON_WM_TIMER()
 	ON_BN_CLICKED(IDC_BTN_DIGIT_EXTRACTOR2, &CSudokuDlg::OnBnClickedBtnDigitExtractor2)
+	ON_BN_CLICKED(IDC_BUTTON1, &CSudokuDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -180,21 +182,22 @@ HCURSOR CSudokuDlg::OnQueryDragIcon()
 
 void CSudokuDlg::OnBnClickedBtnAcquire()
 {
-	// TODO: Add your control notification handler code here
-	UpdateData();
-
+	UpdateData(TRUE);
+//	TRACE(_T("%s\n"), m_strPath);
 	m_InputImg = m_ImageAcquirer.AcquireImage(CStringA(m_strPath));
-	m_DispInput.SetImg(m_InputImg);
 	m_DispOutput.SetImg(Mat());
 	if(m_InputImg.data == NULL) {
-		MessageBox(_T("Wrong path!"));
+		m_strStatus = CString(_T("Wrong path."));
 		DisableButtons();
+		m_DispInput.SetImg(Mat());
 	} else {
+		m_DispInput.SetImg(m_InputImg);
 		m_strStatus = CString(_T("Image loaded."));
 		UpdateData(FALSE);
 		EnableButtons();
 		m_ImageProcessing.LoadImageW(m_InputImg);
 	}
+	UpdateData(FALSE);
 	
 }
 
@@ -263,19 +266,13 @@ void CSudokuDlg::OnBnClickedBtnSudokuExtractor()
 
 void CSudokuDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	// TODO: Add your message handler code here and/or call default
-
-
-
-//	while(solution.size() != 0) {
-		int num = MathUtilities::GetRandomNumber(0, solution.size() - 1);
-		//Send(solution[num]);
+	int num = MathUtilities::GetRandomNumber(0, solution.size() - 1);
 		
-		vec.push_back(solution[num]);
-		solution.erase(solution.begin()+num);
+	vec.push_back(solution[num]);
+	solution.erase(solution.begin()+num);
 
-		m_SolutionViewer.LoadSolution(vec);
-		m_DispOutput.SetImg(m_SolutionViewer.View());
+	m_SolutionViewer.LoadSolution(vec);
+	m_DispOutput.SetImg(m_SolutionViewer.View());
 
 	if(solution.empty()) {
 		KillTimer(101);
@@ -293,4 +290,15 @@ void CSudokuDlg::OnBnClickedBtnDigitExtractor2()
 	m_ImageProcessing.LoadImageDE();
 	CDigitExtractorDlg dlg(this, &m_ImageProcessing.digit_extractor);
 	dlg.DoModal();
+}
+
+
+void CSudokuDlg::OnBnClickedButton1()
+{
+	//CFileDialog dlg(TRUE, NULL, NULL, OFN_HIDEREADONLY | OFN_FILEMUSTEXIST, _T("picture files(*.jpg)|*.jpg||"), this);
+	CFileDialog dlg(TRUE, NULL, NULL, OFN_HIDEREADONLY | OFN_FILEMUSTEXIST, _T("picture files (*.bmp,*.jpg,*.png)|*.bmp;*.jpg;*.png||"), this);
+	if(dlg.DoModal() == IDOK) {
+		m_strPath = dlg.GetPathName();
+		UpdateData(FALSE);
+	}
 }
