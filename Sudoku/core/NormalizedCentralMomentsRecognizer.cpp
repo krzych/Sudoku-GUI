@@ -73,10 +73,9 @@ int NormalizedCentralMomentsRecognizer::Recognize(cv::Mat& img)
                         CV_8UC1);
 		img_utilities::Resize(img, &tmp, cv::INTER_LINEAR);
 		cv::imshow("digit", tmp);
-		std::cout << "Recognized digit: " << recognized_num << std::endl;
 		int correct_num = GetUserInput();
 		cv::destroyWindow("digit");
-		Train(correct_num-1, m);
+		if(correct_num != 0) Train(correct_num-1, m);
 		return correct_num;
 	}
 	return 0;
@@ -133,9 +132,9 @@ int NormalizedCentralMomentsRecognizer::GetUserInput(void)
 {
 	std::cout << "What number do you see?" << std::endl;
 	while(1) {
-		char k = cv::waitKey(20);
+		char k = cv::waitKey(0);
 		int num = atoi(&k);
-		if(num >= 1 && num <= 9) return num;
+		if(num >= 0 && num <= 9) return num;
 	}
 }
 
