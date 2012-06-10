@@ -1,7 +1,8 @@
 /Debug
-/Release
-/ipch
 /Sudoku/Debug
+/Release
+/Sudoku/Release
+/ipch
 *.png
 *.xml
 *.jpg
