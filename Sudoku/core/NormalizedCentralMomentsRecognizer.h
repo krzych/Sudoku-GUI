@@ -29,12 +29,12 @@ private:
 	static std::string filename;
 	std::vector<std::pair<int, MyMoments>> data;
 
-	friend class boost::serialization::access;
+	/*friend class boost::serialization::access;
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version)
     {
 		using boost::serialization::make_nvp;
 		ar & make_nvp("data", data)
-    }
+    }*/
 };
 
