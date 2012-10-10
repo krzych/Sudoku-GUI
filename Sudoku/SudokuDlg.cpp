@@ -228,6 +228,8 @@ void CSudokuDlg::OnBnClickedBtnStart()
 	UpdateData(FALSE);
 	solution = m_SudokuSolver.Run();
 
+  sendSolution(solution);
+
 	m_SolutionViewer.LoadImageW(m_ImageProcessing.GetSudoku());
 	v.clear();
 	m_strStatus = CString(_T("Displaying solved SUDOKU"));
@@ -240,6 +242,28 @@ void CSudokuDlg::OnBnClickedBtnStart()
 
 	delete m_pDigitRecognizer;
 	
+}
+
+void CSudokuDlg::sendSolution(std::vector<SudokuCell> &solution)
+{
+  std::string lineToSend;
+  unsigned int index = 0;
+  for (int row = 0; row < 9; ++row) {
+    for (int col = 0; col < 9; ++col) {
+      SudokuCell cell = solution[index];
+      if (cell.row == row && cell.col == col) {
+        char buf[2];
+        sprintf(buf, "%d", cell.val);
+        lineToSend += buf;
+        index = ++index%solution.size();
+      }
+      else {
+        lineToSend += "0";
+      }
+    }
+    // send
+    lineToSend.clear();
+  }
 }
 
 void CSudokuDlg::DisableButtons(void)

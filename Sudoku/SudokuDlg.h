@@ -44,6 +44,8 @@ public:
 	ImageViewer m_DispOutput;
 
 private:
+  void sendSolution(std::vector<SudokuCell> &solution);
+
 	ImageAcquirer m_ImageAcquirer;
 	ImageProcessing m_ImageProcessing;
 	DigitRecognizerInterface* m_pDigitRecognizer;
