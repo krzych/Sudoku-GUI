@@ -9,7 +9,7 @@
 #define ANDROIDCAM
 
 #ifdef ANDROIDCAM
-#define SHOTURL "http://192.168.1.104:8080/shot.jpg"
+#define SHOTURL "http://156.17.14.43:8080/shot.jpg"
 #define TEMPJPG "D:/shot.jpg"
 #include <UrlMon.h>
 #pragma comment(lib,"urlmon.lib")
