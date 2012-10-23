@@ -3,6 +3,7 @@
 #include "imageviewer.h"
 #include "afxwin.h"
 #include "core\SudokuExtractor.h"
+#include "resource.h"
 
 // CSudokuExtracotrDlg dialog
 
@@ -16,7 +17,7 @@ public:
 	virtual ~CSudokuExtracotrDlg();
 
 // Dialog Data
-	enum { IDD = IDD_SUDOKU_EXTRACTOR };
+enum { IDD = IDD_SUDOKU_EXTRACTOR };
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support

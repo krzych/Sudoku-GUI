@@ -57,9 +57,10 @@ END_MESSAGE_MAP()
 
 CSudokuDlg::CSudokuDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CSudokuDlg::IDD, pParent)
-	, m_strPath(_T("foto2.jpg"))
+	, m_strPath(_T("D:/Dropbox/SudokuApp/SudokuApp/foto1.JPG"))
 	, m_strStatus(_T(""))
 	, m_SEDlg(NULL)
+  , server(this)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -182,7 +183,7 @@ HCURSOR CSudokuDlg::OnQueryDragIcon()
 
 void CSudokuDlg::OnBnClickedBtnAcquire()
 {
-	UpdateData(TRUE);
+	//UpdateData(TRUE);
 //	TRACE(_T("%s\n"), m_strPath);
 	m_InputImg = m_ImageAcquirer.AcquireImage(CStringA(m_strPath));
 	m_DispOutput.SetImg(Mat());
@@ -193,11 +194,11 @@ void CSudokuDlg::OnBnClickedBtnAcquire()
 	} else {
 		m_DispInput.SetImg(m_InputImg);
 		m_strStatus = CString(_T("Image loaded."));
-		UpdateData(FALSE);
+		//UpdateData(FALSE);
 		EnableButtons();
 		m_ImageProcessing.LoadImageW(m_InputImg);
 	}
-	UpdateData(FALSE);
+	//UpdateData(FALSE);
 	
 }
 
@@ -228,6 +229,8 @@ void CSudokuDlg::OnBnClickedBtnStart()
 	UpdateData(FALSE);
 	solution = m_SudokuSolver.Run();
 
+  sendSolution(solution);
+
 	m_SolutionViewer.LoadImageW(m_ImageProcessing.GetSudoku());
 	v.clear();
 	m_strStatus = CString(_T("Displaying solved SUDOKU"));
@@ -240,6 +243,28 @@ void CSudokuDlg::OnBnClickedBtnStart()
 
 	delete m_pDigitRecognizer;
 	
+}
+
+void CSudokuDlg::sendSolution(std::vector<SudokuCell> &solution)
+{
+  std::string lineToSend;
+  unsigned int index = 0;
+  for (int row = 0; row < 9; ++row) {
+    for (int col = 0; col < 9; ++col) {
+      SudokuCell cell = solution[index];
+      if (cell.row == row && cell.col == col) {
+        char buf[2];
+        sprintf(buf, "%d", cell.val);
+        lineToSend += buf;
+        index = ++index%solution.size();
+      }
+      else {
+        lineToSend += "0";
+      }
+    }
+    // send
+    lineToSend.clear();
+  }
 }
 
 void CSudokuDlg::DisableButtons(void)

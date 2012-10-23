@@ -6,13 +6,21 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Debug|Win32.ActiveCfg = Debug|Win32
 		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Debug|Win32.Build.0 = Debug|Win32
 		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Release|Win32.ActiveCfg = Debug|Win32
 		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Release|Win32.Build.0 = Debug|Win32
+		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Debug|x64.ActiveCfg = Debug|x64
+		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Debug|x64.Build.0 = Debug|x64
+		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Release|Win32.ActiveCfg = Release|Win32
+		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Release|Win32.Build.0 = Release|Win32
+		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Release|x64.ActiveCfg = Release|Win32
+		{EC414ADF-B40D-41ED-A651-3CC8AC7E1FE1}.Release|x64.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
