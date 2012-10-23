@@ -1,14 +1,15 @@
-﻿Build started 2012-06-10 22:36:25.
-     1>Project "D:\Folder roboczy\VSprojects\Sudoku\Sudoku\Sudoku.vcxproj" on node 2 (build target(s)).
+﻿Build started 2012-10-09 02:11:18.
+     1>Project "D:\Development\cppProjects\sudoku\Sudoku-GUI\Sudoku\Sudoku.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Release\Sudoku.unsuccessfulbuild".
        ClCompile:
          All outputs are up-to-date.
-         All outputs are up-to-date.
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\OpenCV\build\install\include /ID:\boost_1_49_0 /ID:\Development\libs\OpenCV2.3\build\include /ID:\Development\libs\boost_1_51_0 /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D _WINDOWS /D NDEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\Sudoku.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt core\DigitExtractor.cpp
+         DigitExtractor.cpp
        ResourceCompile:
          All outputs are up-to-date.
        Link:
-         d:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Folder roboczy\VSprojects\Sudoku\Release\Sudoku.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\boost_1_49_0\bin.v2\libs\serialization\build\msvc-10.0\release\link-static\threading-multi" /LIBPATH:D:\OpenCV\build\install\lib opencv_core231.lib opencv_highgui231.lib opencv_imgproc231.lib "libboost_serialization-vc100-mt-1_49.lib" /MANIFEST /ManifestFile:"Release\Sudoku.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Folder roboczy\VSprojects\Sudoku\Release\Sudoku.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Folder roboczy\VSprojects\Sudoku\Release\Sudoku.lib" /MACHINE:X86 Release\Sudoku.res
+         d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Development\cppProjects\sudoku\Sudoku-GUI\Release\Sudoku.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\boost_1_49_0\bin.v2\libs\serialization\build\msvc-10.0\release\link-static\threading-multi" /LIBPATH:D:\Development\libs\OpenCV2.3\build\x86\vc10\lib /LIBPATH:D:\Development\libs\boost_1_51_0\stage\lib32 opencv_core230.lib opencv_highgui230.lib opencv_imgproc230.lib "libboost_serialization-vc100-mt-1_51.lib" /MANIFEST /ManifestFile:"Release\Sudoku.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Development\cppProjects\sudoku\Sudoku-GUI\Release\Sudoku.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Development\cppProjects\sudoku\Sudoku-GUI\Release\Sudoku.lib" /MACHINE:X86 Release\Sudoku.res
          Release\DigitExtractor.obj
          Release\DigitRecognizerInterface.obj
          Release\ImageAcquirer.obj
@@ -27,17 +28,17 @@
          Release\Sudoku.obj
          Release\SudokuDlg.obj
          Release\SudokuExtracotrDlg.obj
-            Creating library D:\Folder roboczy\VSprojects\Sudoku\Release\Sudoku.lib and object D:\Folder roboczy\VSprojects\Sudoku\Release\Sudoku.exp
+            Creating library D:\Development\cppProjects\sudoku\Sudoku-GUI\Release\Sudoku.lib and object D:\Development\cppProjects\sudoku\Sudoku-GUI\Release\Sudoku.exp
          Generating code
          Finished generating code
-         Sudoku.vcxproj -> D:\Folder roboczy\VSprojects\Sudoku\Release\Sudoku.exe
+         Sudoku.vcxproj -> D:\Development\cppProjects\sudoku\Sudoku-GUI\Release\Sudoku.exe
        Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Folder roboczy\VSprojects\Sudoku\Release\Sudoku.exe;#1" /manifest Release\Sudoku.exe.intermediate.manifest "d:\Program Files\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Development\cppProjects\sudoku\Sudoku-GUI\Release\Sudoku.exe;#1" /manifest Release\Sudoku.exe.intermediate.manifest "d:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
        FinalizeBuildStatus:
          Deleting file "Release\Sudoku.unsuccessfulbuild".
          Touching "Release\Sudoku.lastbuildstate".
-     1>Done Building Project "D:\Folder roboczy\VSprojects\Sudoku\Sudoku\Sudoku.vcxproj" (build target(s)).
+     1>Done Building Project "D:\Development\cppProjects\sudoku\Sudoku-GUI\Sudoku\Sudoku.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.62
+Time Elapsed 00:00:05.46

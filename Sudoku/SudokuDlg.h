@@ -12,6 +12,8 @@
 #include "core\SolutionViewer.h"
 #include "afxwin.h"
 #include "SudokuExtracotrDlg.h"
+#include "ServerThread.h"
+#include "resource.h"
 
 using namespace std;
 
@@ -23,7 +25,7 @@ public:
 	CSudokuDlg(CWnd* pParent = NULL);	// standard constructor
 
 // Dialog Data
-	enum { IDD = IDD_SUDOKU_DIALOG };
+ enum { IDD = IDD_SUDOKU_DIALOG };
 
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
@@ -56,6 +58,7 @@ private:
 	std::vector<SudokuCell> solution;
 	std::vector<SudokuCell> vec;
 	int counter;
+  ServerThread server;
 
 public:
 	void DisableButtons(void);

@@ -3,7 +3,10 @@
 #include <boost\optional.hpp>
 #include <iostream>
 
+#include <opencv2\highgui\highgui.hpp>
+
 using namespace std;
+using namespace cv;
 
 ImageProcessing::ImageProcessing(void)
 	: ready_flag(false)
@@ -23,6 +26,7 @@ std::vector<SudokuCellImg> ImageProcessing::Run(CWnd& wnd, CString& status)
 	wnd.UpdateData(FALSE);
 	sudoku_extractor.LoadImage(input_img);
 	digit_extractor.LoadImage(sudoku_extractor.GetSudoku());
+
 
 	std::vector<SudokuCellImg> v;
 	for(int row = 0; row < 9; ++row) {

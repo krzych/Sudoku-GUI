@@ -30,7 +30,6 @@ optional<Mat> DigitExtractor::ExtractDigit(unsigned int col,
 													  unsigned int thresh)
 {
 	assert(ready_flag == true);
-
 	cell_img = Mat(input_img, cv::Rect(col*cell_width, row*cell_height, cell_width, cell_height));
 	Preprocess(&cell_img);
 
